@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Престиж Такси - Заказ</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🚕 Престиж Такси</h1>
+            <p class="subtitle">Заказ такси</p>
+        </header>
+
+        <div class="form-section">
+            <!-- Выбор типа маршрута -->
+            <div class="input-group">
+                <label>Тип маршрута</label>
+                <div class="route-type-buttons">
+                    <button type="button" class="route-type-btn active" data-type="city" id="route-city">
+                        🏙️ По городу
+                    </button>
+                    <button type="button" class="route-type-btn" data-type="outcity" id="route-outcity">
+                        🚗 За город
+                    </button>
+                </div>
+            </div>
+
+            <!-- Форма для заказа по городу -->
+            <div id="city-form">
+                <div class="input-group">
+                    <label for="from">Откуда</label>
+                    <input type="text" id="from" placeholder="Введите адрес отправления">
+                </div>
+
+                <div class="input-group">
+                    <label for="to">Куда</label>
+                    <input type="text" id="to" placeholder="Введите адрес назначения">
+                </div>
+
+                <div id="additional-points-container"></div>
+
+                <button id="add-point-btn" class="add-point-btn">
+                    ➕ Добавить дополнительную точку
+                </button>
+            </div>
+
+            <!-- Форма для заказа за город -->
+            <div id="outcity-form" style="display: none;">
+                <div class="input-group">
+                    <label for="from-outcity">Откуда</label>
+                    <select id="from-outcity" class="location-select">
+                        <option value="">Выберите пункт отправления</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label for="to-outcity">Куда</label>
+                    <select id="to-outcity" class="location-select">
+                        <option value="">Выберите пункт назначения</option>
+                    </select>
+                </div>
+
+                <div id="outcity-additional-points-container"></div>
+
+                <button id="add-outcity-point-btn" class="add-point-btn">
+                    ➕ Добавить точку по городу
+                </button>
+            </div>
+        </div>
+
+        <div class="footer">
+            <div class="total-price">
+                <span class="price-label">💰 Общая сумма:</span>
+                <span class="price-value" id="total-price">150 ₽</span>
+            </div>
+            <button id="order-btn" class="order-btn">Заказать</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
